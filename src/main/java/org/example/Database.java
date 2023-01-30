@@ -21,7 +21,8 @@ public class Database {
         return instance;
     }
     public Connection getConnection() {
-        File file = new File("/Users/serhiimischenko/IdeaProjects/Module04/src/main/resources/properties.properties");
+        File file = new File("/Users/serhiimischenko/IdeaProjects/Module04/src/main/resources/" +
+                "properties.properties");
         Properties properties = new Properties();
         Connection conn = null;
         try {
