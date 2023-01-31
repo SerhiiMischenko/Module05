@@ -21,11 +21,10 @@ public class DatabaseQueryService {
     public List<LongestProject> findLongestProject() {
         ResultSet resultSet;
         List<LongestProject> list = new ArrayList<>();
-
         Database database = Database.getInstance();
-        Connection conn = database.getConnection();
-        try (PreparedStatement preparedStatement = conn.prepareStatement(database.sqlResponseReader("sql/find_longest_project.sql"))) {
-            resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_longest_project.sql"));
+        try (Connection conn = database.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(database.sqlResponseReader("sql/find_longest_project.sql"))) {
+             resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_longest_project.sql"));
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int month_count = resultSet.getInt("month_count");
@@ -41,9 +40,9 @@ public class DatabaseQueryService {
         ResultSet resultSet;
         List<MaxProjectsClient> list = new ArrayList<>();
         Database database = Database.getInstance();
-        Connection conn = database.getConnection();
-        try (PreparedStatement preparedStatement = conn.prepareStatement("sql/find_max_projects_client.sql")) {
-            resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_max_projects_client.sql"));
+        try (Connection conn = database.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("sql/find_max_projects_client.sql")) {
+             resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_max_projects_client.sql"));
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int month_count = resultSet.getInt("project_count");
@@ -59,9 +58,9 @@ public class DatabaseQueryService {
         ResultSet resultSet;
         List<MaxSalaryWorker> list = new ArrayList<>();
         Database database = Database.getInstance();
-        Connection conn = database.getConnection();
-        try (PreparedStatement preparedStatement = conn.prepareStatement("sql/find_max_salary_worker.sql")) {
-            resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_max_salary_worker.sql"));
+        try (Connection conn = database.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("sql/find_max_salary_worker.sql")) {
+             resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_max_salary_worker.sql"));
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int salary = resultSet.getInt("salary");
@@ -77,9 +76,9 @@ public class DatabaseQueryService {
         ResultSet resultSet;
         List<YoungestEldestWorkers> list = new ArrayList<>();
         Database database = Database.getInstance();
-        Connection conn = database.getConnection();
-        try (PreparedStatement preparedStatement = conn.prepareStatement("sql/find_youngest_eldest_workers.sql")) {
-            resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_youngest_eldest_workers.sql"));
+        try ( Connection conn = database.getConnection();
+              PreparedStatement preparedStatement = conn.prepareStatement("sql/find_youngest_eldest_workers.sql")) {
+              resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/find_youngest_eldest_workers.sql"));
             while (resultSet.next()) {
                 String type = resultSet.getString("TYPE");
                 String name = resultSet.getString("NAME");
@@ -96,9 +95,9 @@ public class DatabaseQueryService {
         ResultSet resultSet;
         List<Project_prices> list = new ArrayList<>();
         Database database = Database.getInstance();
-        Connection conn = database.getConnection();
-        try (PreparedStatement preparedStatement = conn.prepareStatement("sql/print_project_prices.sql")) {
-            resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/print_project_prices.sql"));
+        try (Connection conn = database.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement("sql/print_project_prices.sql")) {
+             resultSet = preparedStatement.executeQuery(database.sqlResponseReader("sql/print_project_prices.sql"));
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int price = resultSet.getInt("PRICE");
